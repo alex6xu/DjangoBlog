@@ -99,9 +99,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'djangoblog',
-        'USER': os.environ.get('DJANGO_MYSQL_USER'),
-        'PASSWORD': os.environ.get('DJANGO_MYSQL_PASSWORD'),
-        'HOST': os.environ.get('DJANGO_MYSQL_HOST'),
+        'USER': "root",
+        'PASSWORD': "Abcd1234",
+        'HOST': "127.0.0.1",
         'PORT': 3306,
         'OPTIONS': {'charset': 'utf8mb4'},
     }
@@ -175,13 +175,13 @@ PAGINATE_BY = 10
 CACHE_CONTROL_MAX_AGE = 2592000
 # cache setting
 CACHES = {
-    'default': {
+    'memcached': {
         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
         'LOCATION': '127.0.0.1:11211',
         'KEY_PREFIX': 'django_test' if TESTING else 'djangoblog',
         'TIMEOUT': 60 * 60 * 10
     },
-    'locmemcache': {
+    'default': {
         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
         'TIMEOUT': 10800,
         'LOCATION': 'unique-snowflake',
@@ -197,14 +197,14 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # EMAIL_USE_TLS = True
 EMAIL_USE_SSL = True
 
-EMAIL_HOST = 'smtp.mxhichina.com'
+EMAIL_HOST = 'smtp.163.com'
 EMAIL_PORT = 465
 EMAIL_HOST_USER = os.environ.get('DJANGO_EMAIL_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('DJANGO_EMAIL_PASSWORD')
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 SERVER_EMAIL = os.environ.get('DJANGO_EMAIL_USER')
 # 设置debug=false 未处理异常邮件通知
-ADMINS = [('liangliang', 'liangliangyy@gmail.com')]
+ADMINS = [('alex', 'permike@163.com')]
 # 微信管理员密码(两次md5获得)
 WXADMIN = '995F03AC401D6CABABAEF756FC4D43C7'
 
